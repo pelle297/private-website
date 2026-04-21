@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Private Dashboard</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #111;
+      color: white;
+      text-align: center;
+      margin: 0;
+    }
+
+    .box {
+      margin-top: 100px;
+      padding: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      background: #4CAF50;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+      margin: 5px;
+    }
+
+    button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <h1>🔒 Private Dashboard</h1>
+    <p>Du bist eingeloggt</p>
+
+    <button onclick="alert('Funktioniert 👍')">
+      Test Button
+    </button>
+
+    <br><br>
+
+    <button onclick="logout()">
+      Logout
+    </button>
+  </div>
+
+  <script>
+    function logout() {
+      window.location.href = "/logout";
+    }
+  </script>
+</body>
+</html>
