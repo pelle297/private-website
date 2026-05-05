@@ -10,7 +10,7 @@ app.use(
       user2: "1234",
       user3: "1234"
     },
-    challenge: true,
+    challenge: true
   })
 );
 
@@ -23,165 +23,174 @@ app.get("/", (req, res) => {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ultimate Dashboard</title>
+<title>Enterprise Dashboard</title>
 <style>
-:root{
-  --accent:#4facfe;
-  --accent2:#00c6ff;
-}
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
 body{
-  background:
-    radial-gradient(circle at top left,#3a5fff 0%,transparent 30%),
-    radial-gradient(circle at top right,#ff4d8d 0%,transparent 25%),
-    radial-gradient(circle at bottom,#00c6ff 0%,transparent 35%),
-    #0b0d14;
-  color:white;
-  min-height:100vh;
+background:#f3f6fb;
+color:#111827;
 }
 .wrapper{
-  display:flex;
-  min-height:100vh;
+display:flex;
+min-height:100vh;
 }
 .sidebar{
-  width:260px;
-  padding:25px;
-  background:rgba(255,255,255,.05);
-  backdrop-filter:blur(18px);
-  border-right:1px solid rgba(255,255,255,.08);
+width:270px;
+background:#fff;
+border-right:1px solid #e5e7eb;
+padding:28px;
 }
 .logo{
-  font-size:28px;
-  font-weight:700;
-  margin-bottom:30px;
+font-size:24px;
+font-weight:700;
+margin-bottom:35px;
 }
 .nav-btn{
-  width:100%;
-  padding:14px;
-  margin-bottom:10px;
-  border:none;
-  border-radius:14px;
-  background:rgba(255,255,255,.06);
-  color:white;
-  cursor:pointer;
-  text-align:left;
-  transition:.25s;
+width:100%;
+padding:14px 16px;
+margin-bottom:10px;
+border:none;
+border-radius:12px;
+background:transparent;
+cursor:pointer;
+text-align:left;
+font-size:15px;
+transition:.2s;
 }
 .nav-btn:hover{
-  background:rgba(255,255,255,.12);
-  transform:translateX(5px);
+background:#f3f4f6;
 }
 .main{
-  flex:1;
-  padding:30px;
+flex:1;
+padding:30px;
+}
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:28px;
+}
+.search{
+padding:12px 16px;
+width:300px;
+border:1px solid #d1d5db;
+border-radius:12px;
+background:#fff;
+}
+.user-pill{
+background:#fff;
+padding:12px 18px;
+border-radius:12px;
+border:1px solid #e5e7eb;
+font-weight:600;
 }
 .hero{
-  padding:28px;
-  border-radius:24px;
-  background:rgba(255,255,255,.07);
-  backdrop-filter:blur(18px);
-  border:1px solid rgba(255,255,255,.08);
-  margin-bottom:24px;
+background:linear-gradient(135deg,#2563eb,#4f46e5);
+padding:30px;
+border-radius:22px;
+color:white;
+margin-bottom:24px;
 }
 .hero h1{
-  font-size:34px;
-}
-.hero p{
-  opacity:.75;
-  margin-top:6px;
+font-size:32px;
+margin-bottom:8px;
 }
 .grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
 }
 .card{
-  background:rgba(255,255,255,.07);
-  backdrop-filter:blur(18px);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:22px;
-  padding:22px;
-  box-shadow:0 15px 30px rgba(0,0,0,.25);
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:18px;
+padding:22px;
+box-shadow:0 8px 20px rgba(0,0,0,.04);
 }
 .card h3{
-  margin-bottom:14px;
+font-size:15px;
+color:#6b7280;
+margin-bottom:12px;
 }
 .big{
-  font-size:30px;
-  font-weight:700;
+font-size:30px;
+font-weight:700;
 }
 .progress{
-  width:100%;
-  height:10px;
-  background:rgba(255,255,255,.08);
-  border-radius:999px;
-  overflow:hidden;
-  margin-top:10px;
+height:10px;
+background:#e5e7eb;
+border-radius:999px;
+overflow:hidden;
+margin-top:12px;
 }
 .fill{
-  height:100%;
-  border-radius:999px;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
+height:100%;
+background:#2563eb;
+}
+.list-item{
+padding:10px 0;
+border-bottom:1px solid #f1f5f9;
+font-size:14px;
+}
+.badge{
+display:inline-block;
+padding:5px 10px;
+border-radius:999px;
+font-size:12px;
+font-weight:600;
+background:#dcfce7;
+color:#166534;
+}
+.task{
+padding:12px;
+background:#f9fafb;
+border-radius:12px;
+margin-bottom:10px;
+}
+.team{
+display:flex;
+align-items:center;
+gap:12px;
+margin-bottom:12px;
+}
+.avatar{
+width:42px;
+height:42px;
+border-radius:50%;
+background:#2563eb;
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:700;
 }
 .btn{
-  width:100%;
-  padding:12px;
-  margin-top:10px;
-  border:none;
-  border-radius:12px;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:white;
-  cursor:pointer;
-  font-weight:600;
+width:100%;
+padding:12px;
+border:none;
+border-radius:12px;
+background:#2563eb;
+color:#fff;
+cursor:pointer;
+font-weight:600;
+margin-top:10px;
 }
 .btn:hover{
-  filter:brightness(1.08);
-}
-.todo-input{
-  width:100%;
-  padding:10px;
-  border:none;
-  border-radius:10px;
-  margin-bottom:10px;
-}
-.todo-item{
-  background:rgba(255,255,255,.06);
-  padding:10px;
-  border-radius:10px;
-  margin-bottom:8px;
-  cursor:pointer;
-}
-.theme-row{
-  display:flex;
-  gap:10px;
-  margin-top:10px;
-}
-.theme-dot{
-  width:28px;
-  height:28px;
-  border-radius:50%;
-  cursor:pointer;
-}
-textarea{
-  width:100%;
-  min-height:100px;
-  border:none;
-  border-radius:12px;
-  padding:12px;
-  resize:none;
+background:#1d4ed8;
 }
 .footer{
-  margin-top:25px;
-  opacity:.5;
-  font-size:13px;
+margin-top:28px;
+font-size:13px;
+color:#9ca3af;
 }
-@media(max-width:900px){
-  .sidebar{display:none;}
+@media(max-width:950px){
+.sidebar{display:none;}
+.search{width:180px;}
 }
 </style>
 </head>
@@ -190,127 +199,121 @@ textarea{
 <div class="wrapper">
 
 <div class="sidebar">
-  <div class="logo">⚡ UltraPanel</div>
-  <button class="nav-btn">🏠 Dashboard</button>
-  <button class="nav-btn">📊 Analytics</button>
-  <button class="nav-btn">🎵 Media</button>
-  <button class="nav-btn">⚙ Settings</button>
-  <button class="nav-btn" onclick="window.location.href='/logout'">🔓 Logout</button>
+<div class="logo">Enterprise</div>
+
+<button class="nav-btn">Dashboard</button>
+<button class="nav-btn">Analytics</button>
+<button class="nav-btn">Revenue</button>
+<button class="nav-btn">Projects</button>
+<button class="nav-btn">Team</button>
+<button class="nav-btn">Messages</button>
+<button class="nav-btn">Calendar</button>
+<button class="nav-btn">Settings</button>
+<button class="nav-btn" onclick="window.location.href='/logout'">Logout</button>
 </div>
 
 <div class="main">
 
+<div class="topbar">
+<input class="search" placeholder="Search anything...">
+<div class="user-pill">${user}</div>
+</div>
+
 <div class="hero">
-  <h1>Willkommen ${user} 👋</h1>
-  <p>Ultimate Premium Interactive Dashboard</p>
+<h1>Welcome back, ${user}</h1>
+<p>Your business overview and productivity insights for today.</p>
 </div>
 
 <div class="grid">
 
-  <div class="card">
-    <h3>⏰ Uhrzeit</h3>
-    <div id="clock" class="big"></div>
-    <div id="date" style="opacity:.7;margin-top:8px;"></div>
-  </div>
+<div class="card">
+<h3>Monthly Revenue</h3>
+<div class="big">€82,450</div>
+</div>
 
-  <div class="card">
-    <h3>🌤 Wetter</h3>
-    <div class="big">22°C</div>
-    <p>Sonnig • Hannover</p>
-  </div>
+<div class="card">
+<h3>New Customers</h3>
+<div class="big">1,284</div>
+</div>
 
-  <div class="card">
-    <h3>💻 CPU Usage</h3>
-    <div class="big">78%</div>
-    <div class="progress"><div class="fill" style="width:78%"></div></div>
-  </div>
+<div class="card">
+<h3>Conversion Rate</h3>
+<div class="big">14.8%</div>
+</div>
 
-  <div class="card">
-    <h3>🧠 RAM Usage</h3>
-    <div class="big">12.4 GB</div>
-    <div class="progress"><div class="fill" style="width:62%"></div></div>
-  </div>
+<div class="card">
+<h3>System Health</h3>
+<div class="big">96%</div>
+<div class="progress"><div class="fill" style="width:96%"></div></div>
+</div>
 
-  <div class="card">
-    <h3>📝 Notes</h3>
-    <textarea placeholder="Schreib etwas..."></textarea>
-  </div>
+<div class="card">
+<h3>Performance Analytics</h3>
+<div class="list-item">Traffic Growth <strong>+24%</strong></div>
+<div class="list-item">Sales Trend <strong>+18%</strong></div>
+<div class="list-item">Bounce Rate <strong>-12%</strong></div>
+</div>
 
-  <div class="card">
-    <h3>✅ ToDo Liste</h3>
-    <input id="todoInput" class="todo-input" placeholder="Neue Aufgabe...">
-    <button class="btn" onclick="addTodo()">Hinzufügen</button>
-    <div id="todoList" style="margin-top:12px;"></div>
-  </div>
+<div class="card">
+<h3>Recent Activity</h3>
+<div class="list-item">John updated pricing page</div>
+<div class="list-item">Anna uploaded report.pdf</div>
+<div class="list-item">Server deployment completed</div>
+<div class="list-item">Backup created successfully</div>
+</div>
 
-  <div class="card">
-    <h3>🎵 Musikplayer</h3>
-    <button class="btn" onclick="alert('Play')">▶ Play</button>
-    <button class="btn" onclick="alert('Pause')">⏸ Pause</button>
-    <button class="btn" onclick="alert('Next')">⏭ Next</button>
-  </div>
+<div class="card">
+<h3>Project Status</h3>
+<div class="task">Website Redesign <span class="badge">Done</span></div>
+<div class="task">Marketing Campaign <span class="badge">Active</span></div>
+<div class="task">SEO Optimization <span class="badge">Pending</span></div>
+</div>
 
-  <div class="card">
-    <h3>🎨 Theme Accent</h3>
-    <div class="theme-row">
-      <div class="theme-dot" style="background:#4facfe" onclick="setTheme('#4facfe','#00c6ff')"></div>
-      <div class="theme-dot" style="background:#ff4d8d" onclick="setTheme('#ff4d8d','#ff9966')"></div>
-      <div class="theme-dot" style="background:#7f5cff" onclick="setTheme('#7f5cff','#b06cff')"></div>
-      <div class="theme-dot" style="background:#00d26a" onclick="setTheme('#00d26a','#36ff9f')"></div>
-    </div>
-  </div>
+<div class="card">
+<h3>Team Members</h3>
+<div class="team"><div class="avatar">A</div> Anna Müller</div>
+<div class="team"><div class="avatar">J</div> John Smith</div>
+<div class="team"><div class="avatar">L</div> Lisa Becker</div>
+</div>
 
-  <div class="card">
-    <h3>🔔 Notifications</h3>
-    <p>• Build completed</p>
-    <p>• Sync successful</p>
-    <p>• Backup saved</p>
-  </div>
+<div class="card">
+<h3>Calendar</h3>
+<div class="list-item">09:00 Team Meeting</div>
+<div class="list-item">11:30 Product Review</div>
+<div class="list-item">14:00 Client Call</div>
+<div class="list-item">17:00 Weekly Wrap-up</div>
+</div>
 
-  <div class="card">
-    <h3>👤 Profile</h3>
-    <p>User: ${user}</p>
-    <p>Plan: Premium</p>
-    <p>Status: Active</p>
-  </div>
+<div class="card">
+<h3>Messages</h3>
+<div class="list-item">Anna: Can you review the draft?</div>
+<div class="list-item">John: Deployment successful.</div>
+<div class="list-item">Lisa: Meeting moved to 3 PM.</div>
+</div>
+
+<div class="card">
+<h3>Quick Actions</h3>
+<button class="btn" onclick="alert('Generating Report...')">Generate Report</button>
+<button class="btn" onclick="alert('Exporting Data...')">Export Data</button>
+<button class="btn" onclick="alert('Launching Workflow...')">Launch Workflow</button>
+</div>
+
+<div class="card">
+<h3>Account Overview</h3>
+<div class="list-item">Plan: Enterprise</div>
+<div class="list-item">Status: Active</div>
+<div class="list-item">Renewal: 28 Days</div>
+<div class="list-item">Storage: 78 / 100 GB</div>
+</div>
 
 </div>
 
 <div class="footer">
-  Ultimate Dashboard Demo • Node.js / Express / Render
+Enterprise Professional Dashboard • Premium UI Demo
 </div>
 
 </div>
 </div>
-
-<script>
-function updateClock(){
-  const now = new Date();
-  document.getElementById("clock").innerText = now.toLocaleTimeString();
-  document.getElementById("date").innerText = now.toLocaleDateString();
-}
-setInterval(updateClock,1000);
-updateClock();
-
-function setTheme(a,b){
-  document.documentElement.style.setProperty('--accent',a);
-  document.documentElement.style.setProperty('--accent2',b);
-}
-
-function addTodo(){
-  const input=document.getElementById("todoInput");
-  const list=document.getElementById("todoList");
-  if(!input.value.trim()) return;
-
-  const item=document.createElement("div");
-  item.className="todo-item";
-  item.innerText=input.value;
-  item.onclick=()=>item.remove();
-
-  list.appendChild(item);
-  input.value="";
-}
-</script>
 
 </body>
 </html>
@@ -319,7 +322,7 @@ function addTodo(){
 
 app.get("/logout", (req, res) => {
   res.set("WWW-Authenticate", 'Basic realm="Protected Area"');
-  return res.status(401).send("Du wurdest ausgeloggt");
+  res.status(401).send("Logged out");
 });
 
 app.listen(3000, () => {
